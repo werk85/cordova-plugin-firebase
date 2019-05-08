@@ -3,6 +3,7 @@
  */
 var fs = require('fs');
 var path = require("path");
+var ConfigParser = require("cordova-common").ConfigParser;
 
 fs.ensureDirSync = function (dir) {
   if (!fs.existsSync(dir)) {
@@ -24,7 +25,6 @@ module.exports = {
      * @returns {string} The value of the name element in config.xml.
      */
   getAppName: function (context) {
-    var ConfigParser = context.requireCordovaModule("cordova-lib").configparser;
     var config = new ConfigParser("config.xml");
     return config.name();
   },
